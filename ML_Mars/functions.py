@@ -1,17 +1,15 @@
-def convert_to_percentage(value):
-    return str(round(value * 100, 2)) + '%'
-
-
-def print_model_accuracy_results(metric, maximum_score, minimum_score, average_score):
-    red, reset = '\033[91m', '\033[0m'
-    print(red, 'Maximum ', metric, ' Score: ', reset, convert_to_percentage(maximum_score))
-    print(red, 'Minimum ', metric, ' Score: ', reset, convert_to_percentage(minimum_score))
-    print(red, 'Average ', metric, ' Score: ', reset, convert_to_percentage(average_score))
-    print('\n')
+class Colors:
+    HEADER = '\033[95m'
+    BLUE = '\033[94m'
+    CYAN = '\033[96m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    RESET = '\033[0m'
 
 
 def plot_correlation_matrix(plt, title, df):
-    figure = plt.figure(figsize=(10, 8))
+    figure = plt.figure(figsize=(9, 9))
     plt.matshow(df.corr(), fignum=figure.number)
     plt.xticks(range(
         df.select_dtypes(['number']).shape[1]),
