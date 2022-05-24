@@ -54,7 +54,7 @@ my_func.plot_correlation_matrix(plt, 'Before Pre-processing Correlation Matrix',
 # Removing all these columns is removing unwanted complexity.
 Mars_DF = Mars_DF.drop(columns=USELESS_COLUMNS)
 
-# Remove incomplete data, the number of incomplete rows are minimal and will improve the robustness of our model
+# Remove incomplete data, the number of incomplete rows is minimal and will improve the robustness of our model
 Mars_DF.dropna(inplace=True)
 
 # Date was a string field, converting it to datetime will be usable to generate more relevant information
@@ -86,8 +86,8 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=TEST_SIZE_SC
 # Test all the models
 for key, model in MODELS.items():
     model.fit(X_train, Y_train)
-
     Y_predictions = model.predict(X_test)
+
     print(f'{my_func.Colors.CYAN}Algorithm: {my_func.Colors.RESET}{key}')
     print(f'{my_func.Colors.YELLOW}Actual Data:\n{my_func.Colors.RESET}{Y_test}\n')
     print(f'{my_func.Colors.GREEN}Predicted Data:\n{my_func.Colors.RESET}{Y_predictions}\n')
